@@ -27,17 +27,21 @@ class Polls(commands.Cog, name="Poll Commands"):
             noEmoji = self.client.get_emoji(919325703940481034)
 
             pollChannel = self.client.get_channel(926018110459355176)
-            pollMention = nextcord.utils.get(interaction.guild.roles, id=927069041334554645)
+            pollMention = nextcord.utils.get(
+                interaction.guild.roles, id=927069041334554645)
             emoji = self.client.get_emoji(926052897832189973)
 
-            embed = Embed(title="New Poll", description=f"**{question}**", colour=colour_choice)
-            embed.add_field(name=f"To vote for: {option1}", value=f"React with {yesEmoji} below", inline=True)
-            embed.add_field(name=f"To vote for: {option2}", value=f"React with {noEmoji} below", inline=True)
+            embed = Embed(title="New Poll",
+                          description=f"**{question}**", colour=colour_choice)
+            embed.add_field(name=f"To vote for: {option1}", value=f"React with {
+                            yesEmoji} below", inline=True)
+            embed.add_field(name=f"To vote for: {option2}", value=f"React with {
+                            noEmoji} below", inline=True)
 
             message = await pollChannel.send(f"Attention {pollMention.mention}{emoji}", embed=embed)
             await message.add_reaction(yesEmoji)
             await message.add_reaction(noEmoji)
-            
+
             await interaction.send("Poll sent successfully!")
 
         else:
@@ -58,17 +62,21 @@ class Polls(commands.Cog, name="Poll Commands"):
             optionTwoEmoji = self.client.get_emoji(945349457258635286)
 
             pollChannel = self.client.get_channel(926018110459355176)
-            pollMention = nextcord.utils.get(interaction.guild.roles, id=927069041334554645)
+            pollMention = nextcord.utils.get(
+                interaction.guild.roles, id=927069041334554645)
             emoji = self.client.get_emoji(926052897832189973)
 
-            embed = Embed(title="New Poll", description=f"**{question}**", colour=colour_choice)
-            embed.add_field(name=f"To vote for: {option1}", value=f"React with {optionOneEmoji} below", inline=True)
-            embed.add_field(name=f"To vote for: {option2}", value=f"React with {optionTwoEmoji} below", inline=True)
+            embed = Embed(title="New Poll",
+                          description=f"**{question}**", colour=colour_choice)
+            embed.add_field(name=f"To vote for: {option1}", value=f"React with {
+                            optionOneEmoji} below", inline=True)
+            embed.add_field(name=f"To vote for: {option2}", value=f"React with {
+                            optionTwoEmoji} below", inline=True)
 
             message = await pollChannel.send(f"Attention {pollMention.mention}{emoji}", embed=embed)
             await message.add_reaction(optionOneEmoji)
             await message.add_reaction(optionTwoEmoji)
-            
+
             await interaction.send("Poll sent successfully!")
 
         else:
@@ -91,19 +99,24 @@ class Polls(commands.Cog, name="Poll Commands"):
             optionThreeEmoji = self.client.get_emoji(945349457418018816)
 
             pollChannel = self.client.get_channel(926018110459355176)
-            pollMention = nextcord.utils.get(interaction.guild.roles, id=927069041334554645)
+            pollMention = nextcord.utils.get(
+                interaction.guild.roles, id=927069041334554645)
             emoji = self.client.get_emoji(926052897832189973)
 
-            embed = Embed(title="New Poll", description=f"**{question}**", colour=colour_choice)
-            embed.add_field(name=f"To vote for: {option1}", value=f"React with {optionOneEmoji} below", inline=False)
-            embed.add_field(name=f"To vote for: {option2}", value=f"React with {optionTwoEmoji} below", inline=False)
-            embed.add_field(name=f"To vote for: {option3}", value=f"React with {optionThreeEmoji} below", inline=False)
+            embed = Embed(title="New Poll",
+                          description=f"**{question}**", colour=colour_choice)
+            embed.add_field(name=f"To vote for: {option1}", value=f"React with {
+                            optionOneEmoji} below", inline=False)
+            embed.add_field(name=f"To vote for: {option2}", value=f"React with {
+                            optionTwoEmoji} below", inline=False)
+            embed.add_field(name=f"To vote for: {option3}", value=f"React with {
+                            optionThreeEmoji} below", inline=False)
 
             message = await pollChannel.send(f"Attention {pollMention.mention}{emoji}", embed=embed)
             await message.add_reaction(optionOneEmoji)
             await message.add_reaction(optionTwoEmoji)
             await message.add_reaction(optionThreeEmoji)
-            
+
             await interaction.send("Poll sent successfully!")
 
         else:

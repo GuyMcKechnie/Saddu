@@ -21,7 +21,7 @@ class EventHandlers(commands.Cog, name="Event Handlers"):
         elif isinstance(error, commands.errors.MemberNotFound):
             await ctx.send(
                 "That user does not exist.\nPlease try mentioning another user.\n\nType s-help for more information.")
-            
+
         elif isinstance(error, commands.CommandOnCooldown):
             await ctx.send(f"The counting must stop because I am on cooldown.\nTry again in {error.retry_after:.2f} seconds.")
 

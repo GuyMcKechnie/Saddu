@@ -80,7 +80,8 @@ class Emojis(commands.Cog, name="Emojis"):
                 emojiList.append(str(emoji1.name))
         embed = Embed(title="List of usable emojis with the /emoji command:")
         for emojis in emojiList:
-            embed.add_field(name=f"Name: *{emojis}*", value=f"ID: *{emoji1.id}*", inline=False)
+            embed.add_field(
+                name=f"Name: *{emojis}*", value=f"ID: *{emoji1.id}*", inline=False)
         await interaction.send(embed=embed)
 
     @commands.Cog.listener()

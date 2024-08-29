@@ -3,6 +3,7 @@ import os
 import nextcord
 from nextcord.ext import commands
 
+
 intents = nextcord.Intents.all()
 nextcord.members = True
 
@@ -19,7 +20,7 @@ for fn in os.listdir("./Cogs/ProfileLib"):
 for fn in os.listdir("./Cogs/MessageCount"):
     if fn.endswith(".py"):
         client.load_extension(f"Cogs.MessageCount.{fn[:-3]}")
-    
+
 for fn in os.listdir("./Cogs/Music"):
     if fn.endswith(".py"):
         client.load_extension(f"Cogs.Music.{fn[:-3]}")

@@ -1,4 +1,5 @@
-import time, random
+import time
+import random
 from datetime import datetime
 import nextcord
 from nextcord import *
@@ -58,20 +59,21 @@ class Admin(commands.Cog):
             await interaction.response.send_message("Removed roles successfully.")
         else:
             await interaction.response.send_message("No permissions!")
-            
+
     @nextcord.slash_command(guild_ids=serverID)
     async def roles(self, act: Interaction, member: Member):
         print(member.roles)
-    
+
     @nextcord.slash_command(description="Removes roles for a level reset.",
                             guild_ids=serverID)
     async def levelreset(self, act: Interaction):
         if act.user.guild_permissions.administrator:
             await act.response.defer()
-            loggingChannel: TextChannel = self.client.get_channel(932655328359743548)
+            loggingChannel: TextChannel = self.client.get_channel(
+                932655328359743548)
             response = await loggingChannel.send("Initiating Level Reset...")
             roleUpdateMember = await loggingChannel.send("Initiating...")
-            
+
             lvl1 = act.guild.get_role(927374013624361030)
             lvl5 = act.guild.get_role(927374090426265630)
             lvl10 = act.guild.get_role(927374117211082783)
@@ -81,15 +83,16 @@ class Admin(commands.Cog):
             lvl30 = act.guild.get_role(932651842700185671)
             lvl35 = act.guild.get_role(952536494415962184)
             lvl40 = act.guild.get_role(952536532105969664)
-                        
+
             for member in act.user.guild.members:
                 if not member.bot:
-                        levelRoles = [lvl1, lvl5, lvl10, lvl15, lvl20, lvl25, lvl30, lvl35, lvl40]
-                        for role in levelRoles:
-                            if role in member.roles:
-                                await member.remove_roles(role)
-                                await roleUpdateMember.edit(f"Updated {member.name}.  Removed {role}")
-            
+                    levelRoles = [lvl1, lvl5, lvl10, lvl15,
+                                  lvl20, lvl25, lvl30, lvl35, lvl40]
+                    for role in levelRoles:
+                        if role in member.roles:
+                            await member.remove_roles(role)
+                            await roleUpdateMember.edit(f"Updated {member.name}.  Removed {role}")
+
             await roleUpdateMember.delete()
             await response.edit("Complete!")
             await response.delete(delay=2)
@@ -99,29 +102,33 @@ class Admin(commands.Cog):
     async def serverUpdate(self, act: nextcord.Interaction):
         if act.user.guild_permissions.administrator:
             await act.response.defer()
-            loggingChannel: TextChannel = self.client.get_channel(932655328359743548)
+            loggingChannel: TextChannel = self.client.get_channel(
+                932655328359743548)
             response = await loggingChannel.send("Initiating Server Update...")
-            
+
             # Member Counter Update
             await response.edit("Updating Member Counter")
             member_counter = act.user.guild.stage_channels[0]
             await member_counter.delete()
             await act.user.guild.create_stage_channel(name=f'ᴛᴏᴛᴀʟ ᴍᴇᴍʙᴇʀꜱ: {act.user.guild.member_count}',
-                                                    topic="Member Counter")
+                                                      topic="Member Counter")
             default_role = act.user.guild.default_role
             channel_new = act.user.guild.stage_channels[0]
             await channel_new.set_permissions(default_role, connect=False)
-            
+
             # Member Role Update
             await response.edit("Updating Member Roles")
             roleUpdateMember = await loggingChannel.send("Initiating...")
             for member in act.user.guild.members:
                 if not member.bot:
                     device_role = act.user.guild.get_role(927332770735329350)
-                    serverRelated_role = act.user.guild.get_role(927333218368237590)
-                    defaultColour_role = act.user.guild.get_role(928629266340519976)
+                    serverRelated_role = act.user.guild.get_role(
+                        927333218368237590)
+                    defaultColour_role = act.user.guild.get_role(
+                        928629266340519976)
                     member_role = act.user.guild.get_role(926018077265641522)
-                    memberRoles = [device_role, serverRelated_role, defaultColour_role, member_role]
+                    memberRoles = [device_role, serverRelated_role,
+                                   defaultColour_role, member_role]
                     for role in memberRoles:
                         if not role in member.roles:
                             await member.add_roles(device_role, serverRelated_role, defaultColour_role, member_role)
@@ -129,28 +136,31 @@ class Admin(commands.Cog):
                     print(f"{member.name}#{member.discriminator} is up to date")
             await roleUpdateMember.delete()
             await response.edit("Updated Member Roles")
-            
+
             # Bot Role Update
             await response.edit("Updating Bot Roles")
             for bot in act.user.guild.bots:
-                botTeamRole= act.user.guild.get_role(926018078016413736)
+                botTeamRole = act.user.guild.get_role(926018078016413736)
                 if not botTeamRole in bot.roles:
                     print(f"Updating roles for {bot.name}")
                     await bot.add_roles(botTeamRole)
                     roleUpdateBot = await loggingChannel.send(f"Updated {bot.name}.")
                 # Member role remove from bot
                 device_role = act.user.guild.get_role(927332770735329350)
-                serverRelated_role = act.user.guild.get_role(927333218368237590)
-                defaultColour_role = act.user.guild.get_role(928629266340519976)
+                serverRelated_role = act.user.guild.get_role(
+                    927333218368237590)
+                defaultColour_role = act.user.guild.get_role(
+                    928629266340519976)
                 member_role = act.user.guild.get_role(926018077265641522)
-                memberRoles = [device_role, serverRelated_role, defaultColour_role, member_role]
+                memberRoles = [device_role, serverRelated_role,
+                               defaultColour_role, member_role]
                 for role in memberRoles:
                     if role in bot.roles:
                         await bot.remove_roles(role)
                         print(f"Removed {role} from {bot.name}.")
                 print(f"{bot.name}#{bot.discriminator} is up to date")
             await response.edit("Updated Bot Roles")
-            
+
             # Invite Channel Update
             await response.edit("Updating Invite Information.")
             if act.guild.premium_tier == 3:
@@ -164,7 +174,6 @@ class Admin(commands.Cog):
                 print("Updated invite channel\n")
             await response.edit("Updated Invite Information.")
 
-            
             # End of update
             await response.delete(delay=2)
             await act.followup.send("Updated successfully!")
@@ -194,7 +203,8 @@ class Admin(commands.Cog):
 
     @nextcord.slash_command(name="unban", description="Ban a member", guild_ids=serverID)
     async def unban(self, interaction: nextcord.Interaction,
-                    identity=nextcord.SlashOption(description="Unban a user using their ID", required=True),
+                    identity=nextcord.SlashOption(
+                        description="Unban a user using their ID", required=True),
                     reason: str = nextcord.SlashOption(description="Provide a reason for the unban", required=False)):
         if interaction.user.guild_permissions.administrator:
             if reason is None:
@@ -214,8 +224,10 @@ class Admin(commands.Cog):
     async def timeout(self, interaction: nextcord.Interaction,
                       member: nextcord.Member = nextcord.SlashOption(description="Mute a member using their @.",
                                                                      required=True),
-                      days: int = nextcord.SlashOption(description="Enter how many days to timeout", required=True),
-                      hours: int = nextcord.SlashOption(description="Enter how many hours to timeout", required=True),
+                      days: int = nextcord.SlashOption(
+                          description="Enter how many days to timeout", required=True),
+                      hours: int = nextcord.SlashOption(
+                          description="Enter how many hours to timeout", required=True),
                       minutes: int = nextcord.SlashOption(description="Enter how many minutes to timeout",
                                                           required=True),
                       seconds: int = nextcord.SlashOption(description="Enter how many seconds to timeout",
@@ -237,30 +249,35 @@ class Admin(commands.Cog):
                 if seconds is None:
                     var = seconds == 1
 
-                duration = datetime.timedelta(days=days, hours=hours, minutes=minutes, seconds=seconds)
+                duration = datetime.timedelta(
+                    days=days, hours=hours, minutes=minutes, seconds=seconds)
 
                 if reason is None:
                     await member.edit(nick=f"[Timed Out] {member.display_name}", timeout=duration)
                     await interaction.response.send_message(
-                        f"{member.mention} has been timed out by {interaction.user.men} successfully!\nDuration: {duration}"
+                        f"{member.mention} has been timed out by {
+                            interaction.user.men} successfully!\nDuration: {duration}"
                         f"\nReason: No reason provided.\n")
                     # Logging
                     logChannel = self.client.get_channel(955776300776300594)
                     embed = Embed(title="Member Timed Out",
-                                  description=f"Authorizer: {interaction.user.name}#{interaction.user.discriminator}.\n"
-                                              f"Member: {member.name}#{member.discriminator}\nDuration:{duration}.")
+                                  description=f"Authorizer: {interaction.user.name}#{
+                                      interaction.user.discriminator}.\n"
+                                  f"Member: {member.name}#{member.discriminator}\nDuration:{duration}.")
                     await logChannel.send(embed=embed)
 
                 else:
                     await member.edit(nick=f"[Timed Out] {member.display_name}", timeout=duration)
                     await interaction.response.send_message(
-                        f"{member.mention} has been timed out by {interaction.user.mention} successfully!\nDuration: "
+                        f"{member.mention} has been timed out by {
+                            interaction.user.mention} successfully!\nDuration: "
                         f"{duration}\nReason: {reason}.\n")
                     # Logging
                     logChannel = self.client.get_channel(955776300776300594)
                     embed = Embed(title="Member Timed Out",
-                                  description=f"Authorizer: {interaction.user.name}#{interaction.user.discriminator}."
-                                              f"\nMember: {member.name}#{member.discriminator}\nDuration:{duration}.")
+                                  description=f"Authorizer: {interaction.user.name}#{
+                                      interaction.user.discriminator}."
+                                  f"\nMember: {member.name}#{member.discriminator}\nDuration:{duration}.")
                     await logChannel.send(embed=embed)
         else:
             await interaction.response.send_message("You do not have permission to do this!")
@@ -275,23 +292,23 @@ class Admin(commands.Cog):
             await interaction.response.send_message(f"Removed the tag from {member.name} successfully!")
         else:
             await interaction.response.send_message("You do not have permission to do this!")
-            
+
     @nextcord.slash_command(description="Nana's test command. Do not run without permission!",
                             guild_ids=serverID)
     async def test(self, act: Interaction, member: Member):
         print("Test")
-        
+
     @nextcord.slash_command(name="delrole", description="Delete a role", guild_ids=serverID)
     async def delRole(self, act: Interaction, member: nextcord.Member):
         if act.user.guild_permissions.administrator:
             qRole = member.guild.get_role(958402876663820359)
             await member.remove_roles(qRole)
-    
+
     @nextcord.slash_command(name="kick", description="Remove someone from the server. WARNING: OP", guild_ids=serverID)
     async def kick(self, act: Interaction, member: nextcord.Member):
         if act.user.guild_permissions.administrator:
             await member.kick()
-    
-            
+
+
 def setup(client):
     client.add_cog(Admin(client))

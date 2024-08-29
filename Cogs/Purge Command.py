@@ -21,7 +21,8 @@ class Purge(commands.Cog, name="Purge Command"):
             amount = amount
             if amount >= 100:
                 await interaction.send(
-                    f"Purging {amount} messages. This is a large amount of messages. It might take a while!",
+                    f"Purging {
+                        amount} messages. This is a large amount of messages. It might take a while!",
                     delete_after=1)
                 await asyncio.sleep(2)
                 channel = interaction.channel
@@ -29,9 +30,10 @@ class Purge(commands.Cog, name="Purge Command"):
                 await interaction.send("Purge completed successfully!", delete_after=5)
                 logChannel = self.client.get_channel(955776300776300594)
                 embed = Embed(title="Purge Command Initiated",
-                              description=f"Author: {interaction.user.name}{interaction.user.discriminator}\n"
-                                          f"Purge Amount: {amount}\n"
-                                          f"Time: {datetime.utcnow().strftime(f'%y/%m/%d at %H:%M')}")
+                              description=f"Author: {interaction.user.name}{
+                                  interaction.user.discriminator}\n"
+                              f"Purge Amount: {amount}\n"
+                              f"Time: {datetime.utcnow().strftime(f'%y/%m/%d at %H:%M')}")
                 await logChannel.send(embed=embed)
             else:
                 await interaction.send(
@@ -42,9 +44,10 @@ class Purge(commands.Cog, name="Purge Command"):
                 await interaction.send("Purge completed successfully!", delete_after=5)
                 logChannel = self.client.get_channel(955776300776300594)
                 embed = Embed(title="Purge Command Initiated",
-                              description=f"Author: {interaction.user.name}{interaction.user.discriminator}\n"
-                                          f"Purge Amount: {amount}\n"
-                                          f"Time: {datetime.utcnow().strftime(f'%y/%m/%d at %H:%M')}")
+                              description=f"Author: {interaction.user.name}{
+                                  interaction.user.discriminator}\n"
+                              f"Purge Amount: {amount}\n"
+                              f"Time: {datetime.utcnow().strftime(f'%y/%m/%d at %H:%M')}")
                 await logChannel.send(embed=embed)
         else:
             await interaction.send("You do not have permission to do that!", delete_after=2)

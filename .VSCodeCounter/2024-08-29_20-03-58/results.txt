@@ -1,0 +1,53 @@
+Date : 2024-08-29 20:03:58
+Directory : c:\Users\mckec\OneDrive\Coding\Saddu\Cogs
+Total : 23 files,  1936 codes, 40 comments, 332 blanks, all 2308 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Python   |         23 |      1,936 |         40 |        332 |      2,308 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++-------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                    | files      | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                       |         23 |      1,936 |         40 |        332 |      2,308 |
+| . (Files)                                                               |         16 |      1,281 |         14 |        225 |      1,520 |
+| Counting                                                                |          2 |        155 |         18 |         32 |        205 |
+| MessageCount                                                            |          1 |         97 |          8 |         10 |        115 |
+| Music                                                                   |          2 |        183 |          0 |         20 |        203 |
+| ProfileLib                                                              |          1 |        175 |          0 |         37 |        212 |
+| TTS                                                                     |          1 |         45 |          0 |          8 |         53 |
++-------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                | language | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| c:\Users\mckec\OneDrive\Coding\Saddu\Cogs\API Related Commands.py       | Python   |         59 |          0 |         11 |         70 |
+| c:\Users\mckec\OneDrive\Coding\Saddu\Cogs\Admin Help Command.py         | Python   |         81 |          0 |         12 |         93 |
+| c:\Users\mckec\OneDrive\Coding\Saddu\Cogs\Admin.py                      | Python   |        258 |          8 |         32 |        298 |
+| c:\Users\mckec\OneDrive\Coding\Saddu\Cogs\Counting\Controllers.py       | Python   |         23 |          0 |          6 |         29 |
+| c:\Users\mckec\OneDrive\Coding\Saddu\Cogs\Counting\MainCounting.py      | Python   |        132 |         18 |         26 |        176 |
+| c:\Users\mckec\OneDrive\Coding\Saddu\Cogs\Custom Help Command.py        | Python   |        114 |          0 |         17 |        131 |
+| c:\Users\mckec\OneDrive\Coding\Saddu\Cogs\Embeds.py                     | Python   |        104 |          0 |         11 |        115 |
+| c:\Users\mckec\OneDrive\Coding\Saddu\Cogs\Emojis.py                     | Python   |         90 |          0 |          9 |         99 |
+| c:\Users\mckec\OneDrive\Coding\Saddu\Cogs\Error Handlers.py             | Python   |         23 |          0 |         11 |         34 |
+| c:\Users\mckec\OneDrive\Coding\Saddu\Cogs\Fun Commands.py               | Python   |         65 |          0 |         11 |         76 |
+| c:\Users\mckec\OneDrive\Coding\Saddu\Cogs\Logging.py                    | Python   |         65 |          0 |         13 |         78 |
+| c:\Users\mckec\OneDrive\Coding\Saddu\Cogs\MessageCount\Message Count.py | Python   |         97 |          8 |         10 |        115 |
+| c:\Users\mckec\OneDrive\Coding\Saddu\Cogs\Music\Controllers.py          | Python   |        134 |          0 |         11 |        145 |
+| c:\Users\mckec\OneDrive\Coding\Saddu\Cogs\Music\Music Main.py           | Python   |         49 |          0 |          9 |         58 |
+| c:\Users\mckec\OneDrive\Coding\Saddu\Cogs\On Ready.py                   | Python   |         15 |          0 |          7 |         22 |
+| c:\Users\mckec\OneDrive\Coding\Saddu\Cogs\Polls.py                      | Python   |         86 |          0 |         29 |        115 |
+| c:\Users\mckec\OneDrive\Coding\Saddu\Cogs\ProfileLib\Profiles.py        | Python   |        175 |          0 |         37 |        212 |
+| c:\Users\mckec\OneDrive\Coding\Saddu\Cogs\Purge Command.py              | Python   |         46 |          0 |          9 |         55 |
+| c:\Users\mckec\OneDrive\Coding\Saddu\Cogs\Reporting.py                  | Python   |         31 |          0 |          8 |         39 |
+| c:\Users\mckec\OneDrive\Coding\Saddu\Cogs\Server Events.py              | Python   |        140 |          5 |         13 |        158 |
+| c:\Users\mckec\OneDrive\Coding\Saddu\Cogs\Snipe & Sniped.py             | Python   |         72 |          1 |         21 |         94 |
+| c:\Users\mckec\OneDrive\Coding\Saddu\Cogs\Suggestions.py                | Python   |         32 |          0 |         11 |         43 |
+| c:\Users\mckec\OneDrive\Coding\Saddu\Cogs\TTS\MainTTS.py                | Python   |         45 |          0 |          8 |         53 |
+| Total                                                                   |          |      1,936 |         40 |        332 |      2,308 |
++-------------------------------------------------------------------------+----------+------------+------------+------------+------------+

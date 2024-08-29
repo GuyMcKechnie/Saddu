@@ -29,7 +29,7 @@ class APICommands(commands.Cog, name="API Commands"):
         await intact.user.trigger_typing()
         async with aiohttp.ClientSession() as session:
             async with session.get(
-                  f'https://some-random-api.ml/canvas/horny?avatar={avatar}') as image:
+                    f'https://some-random-api.ml/canvas/horny?avatar={avatar}') as image:
                 if 300 > image.status >= 200:
                     f = io.BytesIO(await image.read())
                     file = nextcord.File(f, "horny.png")

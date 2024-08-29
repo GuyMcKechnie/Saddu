@@ -1,4 +1,5 @@
-import sqlite3, random
+import sqlite3
+import random
 from datetime import datetime
 import nextcord
 from nextcord import *
@@ -20,7 +21,8 @@ class MessageCount(commands.Cog, name="MessageCount Commands"):
                 amount = ""
                 user_id = message.author.id
                 # Database
-                dbConnection = sqlite3.connect("/home/container/Cogs/MessageCount/messageCountDatabase.db")
+                dbConnection = sqlite3.connect(
+                    "/home/container/Cogs/MessageCount/messageCountDatabase.db")
                 cursor = dbConnection.cursor()
                 cursor.execute("""CREATE TABLE IF NOT EXISTS messageCountDatabase
                             (id INT PRIMARY KEY, 
@@ -33,7 +35,7 @@ class MessageCount(commands.Cog, name="MessageCount Commands"):
                 listOfMessageNumber = list(amount)
                 listOfMessageNumber[0] += 1
                 cursor.execute("""UPDATE messageCountDatabase SET messageNumber = ? WHERE id = ?""",
-                            (listOfMessageNumber[0], user_id,))
+                               (listOfMessageNumber[0], user_id,))
                 dbConnection.commit()
                 # Database
         except sqlite3.OperationalError:
@@ -45,7 +47,8 @@ class MessageCount(commands.Cog, name="MessageCount Commands"):
         await act.response.defer()
         amount = ""
         # Database
-        connection = sqlite3.connect("/home/container/Cogs/MessageCount/messageCountDatabase.db")
+        connection = sqlite3.connect(
+            "/home/container/Cogs/MessageCount/messageCountDatabase.db")
         cursor = connection.cursor()
         for row in cursor.execute("""SELECT messageNumber FROM messageCountDatabase WHERE id = ?""", (member.id,)):
             amount = row
@@ -60,14 +63,15 @@ class MessageCount(commands.Cog, name="MessageCount Commands"):
                           timestamp=datetime.utcnow(),
                           colour=random.choice(colours))
             await act.followup.send(embed=embed)
-            
+
     @commands.Cog.listener()
     async def on_message(self, message: Message):
         try:
             amount = ""
             user_id = message.author.id
             # Database
-            dbConnection = sqlite3.connect("/home/container/Cogs/MessageCount/serverMessageCountDatabase.db")
+            dbConnection = sqlite3.connect(
+                "/home/container/Cogs/MessageCount/serverMessageCountDatabase.db")
             cursor = dbConnection.cursor()
             cursor.execute("""CREATE TABLE IF NOT EXISTS messageCountDatabase
                         (messageNumber INT PRIMARY KEY)""")
@@ -75,18 +79,20 @@ class MessageCount(commands.Cog, name="MessageCount Commands"):
                 amount = row
             listOfMessageNumber = list(amount)
             x = listOfMessageNumber[0] + 1
-            cursor.execute("""INSERT OR IGNORE INTO messageCountDatabase VALUES(?)""", (x,))
+            cursor.execute(
+                """INSERT OR IGNORE INTO messageCountDatabase VALUES(?)""", (x,))
             dbConnection.commit()
             for row in cursor.execute("""SELECT messageNumber FROM messageCountDatabase"""):
                 amount = row
             listOfMessageNumber = list(amount)
             x = listOfMessageNumber[0] + 1
-            cursor.execute("""UPDATE messageCountDatabase SET messageNumber = ?""", (x,)) 
+            cursor.execute(
+                """UPDATE messageCountDatabase SET messageNumber = ?""", (x,))
             dbConnection.commit()
             # Database
         except sqlite3.OperationalError:
             pass
-        
+
     @nextcord.slash_command(description="Returns the server's message count",
                             guild_ids=serverID)
     async def scount(self, act: Interaction):
@@ -94,7 +100,8 @@ class MessageCount(commands.Cog, name="MessageCount Commands"):
         await act.response.defer()
         amount = ""
         # Database
-        connection = sqlite3.connect("/home/container/Cogs/MessageCount/serverMessageCountDatabase.db")
+        connection = sqlite3.connect(
+            "/home/container/Cogs/MessageCount/serverMessageCountDatabase.db")
         cursor = connection.cursor()
         for row in cursor.execute("""SELECT messageNumber FROM messageCountDatabase"""):
             amount = row
@@ -103,11 +110,12 @@ class MessageCount(commands.Cog, name="MessageCount Commands"):
             await act.followup.send(f"There are no messages in this server!")
         else:
             listAmount = list(amount)
-            embed = Embed(title="Server Message Counter", 
-                          description=f"{act.guild.name}'s amount of messages: {listAmount[0]}", 
-                          colour=random.choice(colours), 
+            embed = Embed(title="Server Message Counter",
+                          description=f"{act.guild.name}'s amount of messages: {
+                              listAmount[0]}",
+                          colour=random.choice(colours),
                           timestamp=datetime.utcnow())
-            await act.followup.send(embed=embed) 
+            await act.followup.send(embed=embed)
 
 
 def setup(client: commands.Bot):

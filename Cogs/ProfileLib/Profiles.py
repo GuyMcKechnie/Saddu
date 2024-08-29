@@ -58,14 +58,15 @@ class Profiles(commands.Cog, name="Profile Commands"):
         ownerE = self.client.get_emoji(959779101785354280)
         server_embed.add_field(name=f"{ownerE} Server Owner",
                                value=f"{act.guild.owner}\n"
-                                     f"**Server Description**\n"
-                                     f"{act.guild.description}",
+                               f"**Server Description**\n"
+                               f"{act.guild.description}",
                                inline=False)
 
         boostE = self.client.get_emoji(959779367431598151)
         server_embed.add_field(name=f"{boostE} Boost Status",
                                value=f"Level: {act.guild.premium_tier}\n"
-                                     f"Boosts: {act.guild.premium_subscription_count}",
+                               f"Boosts: {
+                                   act.guild.premium_subscription_count}",
                                inline=False)
 
         memberE = self.client.get_emoji(959779663264223262)
@@ -73,9 +74,11 @@ class Profiles(commands.Cog, name="Profile Commands"):
         for bot in act.guild.bots:
             botCount += 1
         server_embed.add_field(name=f"{memberE} Member Summary",
-                               value=f"> Total Members: {act.guild.member_count}\n"
-                                     f">  Bot Members: {botCount}\n"
-                                     f">  Human Members: {act.guild.member_count - botCount}",
+                               value=f"> Total Members: {
+                                   act.guild.member_count}\n"
+                               f">  Bot Members: {botCount}\n"
+                               f">  Human Members: {
+                                   act.guild.member_count - botCount}",
                                inline=True)
 
         channelE = self.client.get_emoji(959780921593188402)
@@ -90,9 +93,9 @@ class Profiles(commands.Cog, name="Profile Commands"):
             e = + 1
         server_embed.add_field(name=f"{channelE} Channel Summary",
                                value=f"> Total Channels: {b}\n"
-                                     f">  Text Channels: {c}\n"
-                                     f">  Voice Channels: {d}\n"
-                                     f">  Stage Channels: {e}",
+                               f">  Text Channels: {c}\n"
+                               f">  Voice Channels: {d}\n"
+                               f">  Stage Channels: {e}",
                                inline=True)
 
         calE = self.client.get_emoji(959781236040138824)
@@ -125,7 +128,8 @@ class Profiles(commands.Cog, name="Profile Commands"):
 
         server_image = act.guild.icon.url
         server_embed.set_thumbnail(url=server_image)
-        server_embed.set_footer(text=f"Server ID: {act.guild.id}", icon_url=server_image)
+        server_embed.set_footer(
+            text=f"Server ID: {act.guild.id}", icon_url=server_image)
 
         await act.followup.send(embed=server_embed)
         await loading.edit("Created server profile successfully!", delete_after=2)

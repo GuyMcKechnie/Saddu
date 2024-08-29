@@ -14,7 +14,7 @@ class MusicControllers(commands.Cog):
 
     @nextcord.slash_command(description='Play a song',
                             guild_ids=serverID)
-    async def play(self, 
+    async def play(self,
                    act: Interaction, search: str = SlashOption(description="Song Name", required=True)):
         await act.response.defer()
         song = await YouTubeTrack.search(query=search, return_first=True)
@@ -28,26 +28,30 @@ class MusicControllers(commands.Cog):
             await vc.play(song)
             await vc.set_volume(10)
             embed = Embed(
-                    title="🔊 Now Playing:",
-                    description=f"`{song.title}`\nby: `{song.author}`\nDuration: **{str(datetime.timedelta(seconds=song.length))}**",
-                    url=song.uri,
-                    colour=0x05bdeb)
+                title="🔊 Now Playing:",
+                description=f"`{song.title}`\nby: `{
+                    song.author}`\nDuration: **{str(datetime.timedelta(seconds=song.length))}**",
+                url=song.uri,
+                colour=0x05bdeb)
             embed.set_thumbnail(url=song.thumb)
             embed.set_author(
                 name='Saddu Music Utilities',
                 icon_url="https://cdn.discordapp.com/attachments/945255580778500130/960114777873592350/dj-mix.gif")
-            embed.set_footer(text=f"Requested by {act.user.display_name}#{act.user.discriminator}", icon_url=act.user.display_avatar.url)
+            embed.set_footer(text=f"Requested by {act.user.display_name}#{
+                             act.user.discriminator}", icon_url=act.user.display_avatar.url)
             await act.followup.send(embed=embed)
         elif vc.is_playing():
             await vc.queue.put_wait(song)
             embed = Embed(title=f"📜 Queue",
-                            description=f"Added `{song.title}`\nby `{song.author}` to the queue.",
-                            colour=0x05bdeb)
+                          description=f"Added `{song.title}`\nby `{
+                              song.author}` to the queue.",
+                          colour=0x05bdeb)
             embed.set_thumbnail(url=song.thumb)
             embed.set_author(
                 name=f"Saddu Music Utilities",
                 icon_url="https://cdn.discordapp.com/attachments/945255580778500130/960114777873592350/dj-mix.gif")
-            embed.set_footer(text=f"Queued by {act.user.display_name}#{act.user.discriminator}", icon_url=act.user.avatar.url)
+            embed.set_footer(text=f"Queued by {act.user.display_name}#{
+                             act.user.discriminator}", icon_url=act.user.avatar.url)
             await act.followup.send(embed=embed)
 
     @nextcord.slash_command(description='Pause any playing music',
@@ -95,11 +99,11 @@ class MusicControllers(commands.Cog):
         await act.send(f"Stopped the music ❌")
         if dc == "y":
             await vc.disconnect()
-            
+
     @nextcord.slash_command(description="Changes the volume of the music",
                             guild_ids=serverID)
-    async def volume(self, 
-                     act: Interaction, 
+    async def volume(self,
+                     act: Interaction,
                      amount: int = SlashOption(required=True, description="Changes the volume to the given amount. Recommended amount is 10")):
         if not act.guild.voice_client:
             return await act.channel.send("There is no music playing.\nUse /play to play a track!", delete_after=5)
@@ -115,7 +119,7 @@ class MusicControllers(commands.Cog):
             amount = 1
         await vc.set_volume(amount)
         await act.send(f"Set the volume to {amount}% :speaker:")
-        
+
     @nextcord.slash_command(description="Returns the music that is currently playing",
                             guild_ids=serverID)
     async def nowplaying(self, act: Interaction):
@@ -130,15 +134,17 @@ class MusicControllers(commands.Cog):
             return await act.send("No music playing.\nUse /play to play a track!", delete_after=5)
         song = vc.track
         embed = Embed(
-                    title="🔊 Now Playing:",
-                    description=f"`{song.title}`\nby: `{song.author}`\nDuration: **{str(datetime.timedelta(seconds=song.length))}**",
-                    url=song.uri,
-                    colour=0x05bdeb)
+            title="🔊 Now Playing:",
+            description=f"`{song.title}`\nby: `{
+                song.author}`\nDuration: **{str(datetime.timedelta(seconds=song.length))}**",
+            url=song.uri,
+            colour=0x05bdeb)
         embed.set_thumbnail(url=song.thumb)
         embed.set_author(
             name='Saddu Music Utilities',
             icon_url="https://cdn.discordapp.com/attachments/945255580778500130/960114777873592350/dj-mix.gif")
         await act.send(embed=embed)
+
 
 def setup(client):
     client.add_cog(MusicControllers(client))

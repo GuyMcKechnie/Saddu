@@ -1,4 +1,5 @@
-import wavelink, datetime
+import wavelink
+import datetime
 from wavelink import *
 from nextcord import *
 from nextcord.ext import commands
@@ -40,10 +41,11 @@ class MusicMain(commands.Cog):
             await vc.play(nextSong)
             song = vc.track
             embed = Embed(
-                    title="🔊 Now Playing:",
-                    description=f"`{song.title}`\nby: `{song.author}`\nDuration: **{str(datetime.timedelta(seconds=song.length))}**",
-                    url=song.uri,
-                    colour=0x05bdeb)
+                title="🔊 Now Playing:",
+                description=f"`{song.title}`\nby: `{
+                    song.author}`\nDuration: **{str(datetime.timedelta(seconds=song.length))}**",
+                url=song.uri,
+                colour=0x05bdeb)
             embed.set_thumbnail(url=song.thumb)
             embed.set_author(
                 name='Saddu Music Utilities',
@@ -52,6 +54,7 @@ class MusicMain(commands.Cog):
         except:
             await vc.stop()
             print("Stopped: Queue is empty.")
+
 
 def setup(client: commands.Bot):
     client.add_cog(MusicMain(client))

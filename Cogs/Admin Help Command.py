@@ -9,7 +9,7 @@ from nextcord.ext import commands
 class AdminHelpCommand(commands.Cog, name="Admin Help Command"):
     def __init__(self, client: commands.Bot):
         self.client = client
-        
+
     serverID = [909525005694562384, 945255580778500127]
 
     @nextcord.slash_command(description="Help command for Administrators",
@@ -23,14 +23,16 @@ class AdminHelpCommand(commands.Cog, name="Admin Help Command"):
                               description="",
                               colour=colour_choice,
                               timestamp=datetime.utcnow())
-                embed.set_footer(text=f"/help {group}: {act.user.display_name}", icon_url=act.user.avatar.url)
+                embed.set_footer(
+                    text=f"/help {group}: {act.user.display_name}", icon_url=act.user.avatar.url)
                 embed.add_field(name="Please enter which category you would like to display:",
                                 value="✢ Polls\n"
                                 "✢ Purge Command\n"
                                 "✢ Admin\n"
                                 "✢ Embeds",
                                 inline=False)
-                embed.add_field(name="For example:", value="/admin Polls", inline=False)
+                embed.add_field(name="For example:",
+                                value="/admin Polls", inline=False)
                 await act.send(embed=embed)
 
             elif group == 'Polls' or group == 'polls' or group == 'poll' or group == 'polls':
@@ -44,7 +46,8 @@ class AdminHelpCommand(commands.Cog, name="Admin Help Command"):
                                   description=f">>> {pollCommands}",
                                   colour=colour_choice,
                                   timestamp=datetime.utcnow())
-                pollEmbed.set_footer(text=f"/help {group}: {act.user.display_name}", icon_url=act.user.avatar.url)
+                pollEmbed.set_footer(
+                    text=f"/help {group}: {act.user.display_name}", icon_url=act.user.avatar.url)
                 await act.send(embed=pollEmbed)
 
             elif group == 'purge' or group == 'purge command' or group == 'Purge Command' or group == 'Purge':
@@ -65,22 +68,28 @@ class AdminHelpCommand(commands.Cog, name="Admin Help Command"):
                                 "**TTag**: Enter /ttag to remove the timeout tag from the member."
                 adminEmbed = Embed(title="**__Administrator Commands__**",
                                    description=f"These are in the form of slash commands (/commands) and can be "
-                                               f"triggered by typing /command name.\n>>> {adminCommands}",
+                                   f"triggered by typing /command name.\n>>> {
+                                       adminCommands}",
                                    colour=colour_choice,
                                    timestamp=datetime.utcnow())
-                adminEmbed.set_footer(text=f"/help {group}: {act.user.display_name}", icon_url=act.user.avatar.url)
+                adminEmbed.set_footer(
+                    text=f"/help {group}: {act.user.display_name}", icon_url=act.user.avatar.url)
                 await act.send(embed=adminEmbed)
 
             elif group == 'Embeds' or group == 'embeds':
-                rulesChannel: TextChannel = self.client.get_channel(926018106181185596)
-                memberChannel: TextChannel = self.client.get_channel(926018111285624932)
+                rulesChannel: TextChannel = self.client.get_channel(
+                    926018106181185596)
+                memberChannel: TextChannel = self.client.get_channel(
+                    926018111285624932)
                 embedCommands = f"**Rules**: Enter /rules to send the rules listed in {rulesChannel.mention}.\n\n" \
-                                f"**Member List**: Enter /members to send the member list listed in {memberChannel.mention}."
+                    f"**Member List**: Enter /members to send the member list listed in {
+                        memberChannel.mention}."
                 embedsEmbed = Embed(title="**__Embed Commands__**",
                                     description=f">>> {embedCommands}",
                                     colour=colour_choice,
                                     timestamp=datetime.utcnow())
-                embedsEmbed.set_footer(text=f"/help {group}: {act.user.display_name}", icon_url=act.user.avatar.url)
+                embedsEmbed.set_footer(
+                    text=f"/help {group}: {act.user.display_name}", icon_url=act.user.avatar.url)
                 await act.send(embed=embedsEmbed)
             else:
                 await act.send("No command category found with that name!")

@@ -9,7 +9,7 @@ from nextcord.ext import commands
 class CustomHelpCommand(commands.Cog):
     def __init__(self, client: commands.Bot):
         self.client = client
-        
+
     serverID = [909525005694562384, 945255580778500127]
 
     @nextcord.slash_command(description="Returns a list of commands available",
@@ -31,7 +31,8 @@ class CustomHelpCommand(commands.Cog):
                             "✢ Suggestions\n"
                             "✢ Emojis\n",
                             inline=False)
-            embed.add_field(name="For example:", value="/help Fun Commands", inline=False)
+            embed.add_field(name="For example:",
+                            value="/help Fun Commands", inline=False)
             await act.send(embed=embed)
 
         elif group == "Fun Commands" or group == "fun commands" or group == "Fun commands" or group == "fun Commands":
@@ -47,7 +48,8 @@ class CustomHelpCommand(commands.Cog):
                              description=f">>> {funCommands}",
                              colour=random.choice(colours),
                              timestamp=datetime.utcnow())
-            funEmbed.set_footer(text=f"/help {group}: {act.user.display_name}", icon_url=act.user.avatar.url)
+            funEmbed.set_footer(
+                text=f"/help {group}: {act.user.display_name}", icon_url=act.user.avatar.url)
             await act.send(embed=funEmbed)
 
         elif group == "Message Counters" or group == "message counters" or group == "count" or group == "msgcount":
@@ -57,30 +59,33 @@ class CustomHelpCommand(commands.Cog):
                                description=f">>> {messageCountCommands}",
                                colour=random.choice(colours),
                                timestamp=datetime.utcnow())
-            countEmbed.set_footer(text=f"/help {group}: {act.user.display_name}", icon_url=act.user.avatar.url)
+            countEmbed.set_footer(
+                text=f"/help {group}: {act.user.display_name}", icon_url=act.user.avatar.url)
             await act.send(embed=countEmbed)
-            
+
         elif group == "Music" or group == "music":
             musicCommands = "**Play**: Enter /`play` (song's name) to play a song.\n\n" \
-                                   "**Pause**: Enter /`pause` pause the currently playing song.\n\n" \
-                                   "**Resume**: Enter /`resume` to resume playing the song.\n\n" \
-                                   "**Stop**: Enter /`stop` to stop playing the song. You can enter 'y' or 'n' afterwards to disconnect the bot or not.\n\n" \
-                                   "**Volume**: Enter /`volume` (amount % `0-100`) to change the volume of the music player. Default is 10%.\n\n" \
-                                   "**Now Playing**: Enter /`nowplaying` to return the currently playing song."
+                "**Pause**: Enter /`pause` pause the currently playing song.\n\n" \
+                "**Resume**: Enter /`resume` to resume playing the song.\n\n" \
+                "**Stop**: Enter /`stop` to stop playing the song. You can enter 'y' or 'n' afterwards to disconnect the bot or not.\n\n" \
+                "**Volume**: Enter /`volume` (amount % `0-100`) to change the volume of the music player. Default is 10%.\n\n" \
+                "**Now Playing**: Enter /`nowplaying` to return the currently playing song."
             musicEmbed = Embed(title="__**Music**__",
                                description=f">>> {musicCommands}",
                                colour=random.choice(colours),
                                timestamp=datetime.utcnow())
-            musicEmbed.set_footer(text=f"/help {group}: {act.user.display_name}", icon_url=act.user.avatar.url)
+            musicEmbed.set_footer(
+                text=f"/help {group}: {act.user.display_name}", icon_url=act.user.avatar.url)
             await act.send(embed=musicEmbed)
-        
+
         elif group == "TTS" or group == "tts":
             ttsCommands = "**TTS**: Enter /`tts` (message) to send a TTS message in a voice channel.\n\n"
             ttsEmbed = Embed(title="__**TTS**__",
-                               description=f">>> {ttsCommands}",
-                               colour=random.choice(colours),
-                               timestamp=datetime.utcnow())
-            ttsEmbed.set_footer(text=f"/help {group}: {act.user.display_name}", icon_url=act.user.avatar.url)
+                             description=f">>> {ttsCommands}",
+                             colour=random.choice(colours),
+                             timestamp=datetime.utcnow())
+            ttsEmbed.set_footer(
+                text=f"/help {group}: {act.user.display_name}", icon_url=act.user.avatar.url)
             await act.send(embed=ttsEmbed)
 
         elif group == "Profile Commands" or group == "profile commands" or group == "profile Commands" or group == "profile Commands" or group == "Profile commands" or group == "profiles":
@@ -91,7 +96,8 @@ class CustomHelpCommand(commands.Cog):
                                  description=f">>> {profileCommands}",
                                  colour=random.choice(colours),
                                  timestamp=datetime.utcnow())
-            profileEmbed.set_footer(text=f"/help {group}: {act.user.display_name}", icon_url=act.user.avatar.url)
+            profileEmbed.set_footer(
+                text=f"/help {group}: {act.user.display_name}", icon_url=act.user.avatar.url)
             await act.send(embed=profileEmbed)
 
         elif group == "Snipe" or group == "snipe" or group == "snipe":
@@ -100,7 +106,8 @@ class CustomHelpCommand(commands.Cog):
                                description=f">>> {snipeCommands}",
                                colour=random.choice(colours),
                                timestamp=datetime.utcnow())
-            snipeEmbed.set_footer(text=f"/help {group}: {act.user.display_name}", icon_url=act.user.avatar.url)
+            snipeEmbed.set_footer(
+                text=f"/help {group}: {act.user.display_name}", icon_url=act.user.avatar.url)
             await act.send(embed=snipeEmbed)
 
         elif group == "Suggestions" or group == "suggestions" or group == "suggest" or group == "Suggest":
@@ -109,17 +116,19 @@ class CustomHelpCommand(commands.Cog):
                                  description=f">>> {suggestCommand}",
                                  colour=random.choice(colours),
                                  timestamp=datetime.utcnow())
-            suggestEmbed.set_footer(text=f"/help {group}: {act.user.display_name}", icon_url=act.user.avatar.url)
+            suggestEmbed.set_footer(
+                text=f"/help {group}: {act.user.display_name}", icon_url=act.user.avatar.url)
             await act.send(embed=suggestEmbed)
 
         elif group == "Emoji" or group == "Emojis" or group == "emoji" or group == "emojis":
             emojiCommands = "**Emojis:** Enter /`emoji` (emoji name) to send an animated emoji using the bot.\n\n" \
-                            "*For a full list of usable emojis: /`emojis`*"   
+                            "*For a full list of usable emojis: /`emojis`*"
             emojiEmbed = Embed(title="__**Emojis**__",
                                description=f">>> {emojiCommands}",
                                colour=random.choice(colours),
                                timestamp=datetime.utcnow())
-            emojiEmbed.set_footer(text=f"/help {group}: {act.user.display_name}", icon_url=act.user.avatar.url)
+            emojiEmbed.set_footer(
+                text=f"/help {group}: {act.user.display_name}", icon_url=act.user.avatar.url)
             await act.send(embed=emojiEmbed)
 
         else:
