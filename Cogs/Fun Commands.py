@@ -14,7 +14,7 @@ class FunCommands(commands.Cog, name="Fun Commands"):
     def __init__(self, client: commands.Bot):
         self.client = client
 
-    @nextcord.slash_command(description="Insult a user",
+    @nextcord.slash_command(name="Insult", description="Insult a user",
                             guild_ids=serverID)
     async def insult(self, act: Interaction, member: Member = SlashOption(required=True)):
         colours = [0xeb05e3, 0x05bdeb]
@@ -31,7 +31,7 @@ class FunCommands(commands.Cog, name="Fun Commands"):
         elif member.bot:
             await act.send("I will never insult my kind!")
 
-    @nextcord.slash_command(description="Measure the penis size of a member",
+    @nextcord.slash_command(name="Penis", description="Measure the penis size of a member",
                             guild_ids=serverID)
     async def penis(self, act: Interaction, member: Member = SlashOption(required=True)):
         colours = [0xeb05e3, 0x05bdeb]

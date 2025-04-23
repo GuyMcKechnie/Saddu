@@ -3,7 +3,6 @@ import datetime
 from wavelink import *
 from nextcord import *
 from nextcord.ext import commands
-from wavelink.ext import spotify
 
 
 class MusicMain(commands.Cog):

@@ -2,7 +2,6 @@ import nextcord
 from nextcord import *
 from nextcord.ext import commands
 from wavelink import *
-from wavelink.ext import spotify
 import datetime
 
 
