@@ -28,8 +28,7 @@ class Suggestions(commands.Cog, name="Suggestion Command"):
         emojiWeeWoo = self.client.get_emoji(926052897832189973)
 
         embed = Embed(title="Server Suggestion",
-                      description=f"Suggestion by {
-                          interaction.user.mention}:\n{suggestion}.",
+                      description=f"Suggestion by {interaction.user.mention}:\n{suggestion}.",
                       colour=random.choice(colours),
                       timestamp=datetime.utcnow())
         suggestionMessage = await suggestionChannel.send(f"Attention {suggestionRole.mention}{emojiWeeWoo}",
