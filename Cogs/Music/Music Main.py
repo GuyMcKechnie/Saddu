@@ -1,5 +1,6 @@
 import wavelink
 import datetime
+import spotipy as spotify
 from wavelink import *
 from nextcord import *
 from nextcord.ext import commands
@@ -34,15 +35,14 @@ class MusicMain(commands.Cog):
     @commands.Cog.listener()
     async def on_wavelink_track_end(self, player: Player, track, reason):
         channel = self.client.get_channel(926018139056128080)
-        vc: player = player.guild.voice_client
+        vc = player.guild.voice_client
         try:
             nextSong = vc.queue.get()
             await vc.play(nextSong)
             song = vc.track
             embed = Embed(
                 title="🔊 Now Playing:",
-                description=f"`{song.title}`\nby: `{
-                    song.author}`\nDuration: **{str(datetime.timedelta(seconds=song.length))}**",
+                description=f"`{song.title}`\nby: `{song.author}`\nDuration: **{str(datetime.timedelta(seconds=song.length))}**",
                 url=song.uri,
                 colour=0x05bdeb)
             embed.set_thumbnail(url=song.thumb)

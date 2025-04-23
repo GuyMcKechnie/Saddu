@@ -96,10 +96,7 @@ class LeaveAndJoin(commands.Cog):
         if message.type == MessageType.premium_guild_subscription:
             boost_channel = self.client.get_channel(932294232587251804)
             embed = Embed(title="Server Boost Status",
-                          description=f"{emoji} {
-                              message.author.mention} just boosted the serer!\n"
-                          f"{message.guild.name} has {
-                              message.guild.premium_subscription_count} boosts!",
+                          description=f"{emoji} {message.author.mention} just boosted the serer!\n"f"{message.guild.name} has {message.guild.premium_subscription_count} boosts!",
                           timestamp=datetime.utcnow(),
                           colour=random.choice(colours))
             embed.set_footer(text="ꜱɪᴄᴀʀɪᴜꜱ Boost Status",
@@ -109,11 +106,7 @@ class LeaveAndJoin(commands.Cog):
         elif message.type == MessageType.premium_guild_tier_1:
             boost_channel = self.client.get_channel(932294232587251804)
             embed = Embed(title="Server Boost Status",
-                          description=f"{emoji} {
-                              message.author.mention} just boosted the serer!\n"
-                          f"{message.guild.name} has {
-                              message.guild.premium_subscription_count} boosts!\n"
-                          f"{message.guild.name} has achieved Boost Tier 1",
+                          description=f"{emoji} {message.author.mention} just boosted the serer!\n"f"{message.guild.name} has {message.guild.premium_subscription_count} boosts!\n"f"{message.guild.name} has achieved Boost Tier 1",
                           timestamp=datetime.utcnow(),
                           colour=random.choice(colours))
             embed.set_footer(text="ꜱɪᴄᴀʀɪᴜꜱ Boost Status",
@@ -124,11 +117,7 @@ class LeaveAndJoin(commands.Cog):
         elif message.type == MessageType.premium_guild_tier_2:
             boost_channel = self.client.get_channel(932294232587251804)
             embed = Embed(title="Server Boost Status",
-                          description=f"{emoji} {
-                              message.author.mention} just boosted the serer!\n"
-                          f"{message.guild.name} has {
-                              message.guild.premium_subscription_count} boosts!\n"
-                          f"{message.guild.name} has achieved Boost Tier 2",
+                          description=f"{emoji} {message.author.mention} just boosted the serer!\n"f"{message.guild.name} has {message.guild.premium_subscription_count} boosts!\n"f"{message.guild.name} has achieved Boost Tier 2",
                           timestamp=datetime.utcnow(),
                           colour=random.choice(colours))
             embed.set_footer(text="ꜱɪᴄᴀʀɪᴜꜱ Boost Status",
@@ -139,11 +128,7 @@ class LeaveAndJoin(commands.Cog):
         elif message.type == MessageType.premium_guild_tier_3:
             boost_channel = self.client.get_channel(932294232587251804)
             embed = Embed(title="Server Boost Status",
-                          description=f"{emoji} {
-                              message.author.mention} just boosted the serer!\n"
-                          f"{message.guild.name} has {
-                              message.guild.premium_subscription_count} boosts!\n"
-                          f"{message.guild.name} has achieved Boost Tier 3",
+                          description=f"{emoji} {message.author.mention} just boosted the serer!\n"f"{message.guild.name} has {message.guild.premium_subscription_count} boosts!\n"f"{message.guild.name} has achieved Boost Tier 3",
                           timestamp=datetime.utcnow(),
                           colour=random.choice(colours))
             embed.set_footer(text="ꜱɪᴄᴀʀɪᴜꜱ Boost Status",
