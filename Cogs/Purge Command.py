@@ -21,8 +21,7 @@ class Purge(commands.Cog, name="Purge Command"):
             amount = amount
             if amount >= 100:
                 await interaction.send(
-                    f"Purging {
-                        amount} messages. This is a large amount of messages. It might take a while!",
+                    f"Purging {amount} messages. This is a large amount of messages. It might take a while!",
                     delete_after=1)
                 await asyncio.sleep(2)
                 channel = interaction.channel
