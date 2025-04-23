@@ -111,8 +111,7 @@ class MessageCount(commands.Cog, name="MessageCount Commands"):
         else:
             listAmount = list(amount)
             embed = Embed(title="Server Message Counter",
-                          description=f"{act.guild.name}'s amount of messages: {
-                              listAmount[0]}",
+                          description=f"{act.guild.name}'s amount of messages: {listAmount[0]}",
                           colour=random.choice(colours),
                           timestamp=datetime.utcnow())
             await act.followup.send(embed=embed)
