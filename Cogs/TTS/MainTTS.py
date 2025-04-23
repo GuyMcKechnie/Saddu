@@ -1,10 +1,7 @@
 from datetime import datetime
 import random
-from wavelink import *
 import nextcord
-import os
 import asyncio
-import ffmpeg
 from gtts import gTTS
 from nextcord import *
 from nextcord.ext import commands
