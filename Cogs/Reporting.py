@@ -35,8 +35,7 @@ class BugReports(commands.Cog):
         nanasToy = self.client.get_channel(932655328359743548)
 
         embed = Embed(title="Bug Report",
-                      description=f"Reporter: {act.user.display_name}#{
-                          act.user.discriminator}\nBug: {bug}",
+                      description=f"Reporter: {act.user.display_name}#{act.user.discriminator}\nBug: {bug}",
                       timestamp=datetime.utcnow())
         await nanasToy.send(f"{ping.mention}", embed=embed)
         await act.send("Sent report successfully")
