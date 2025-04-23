@@ -79,9 +79,7 @@ class AdminHelpCommand(commands.Cog, name="Admin Help Command"):
                     926018106181185596)
                 memberChannel: TextChannel = self.client.get_channel(
                     926018111285624932)
-                embedCommands = f"**Rules**: Enter /rules to send the rules listed in {rulesChannel.mention}.\n\n" \
-                    f"**Member List**: Enter /members to send the member list listed in {
-                        memberChannel.mention}."
+                embedCommands = f"**Rules**: Enter /rules to send the rules listed in {rulesChannel.mention}.\n\n**Member List**: Enter /members to send the member list listed in {memberChannel.mention}."
                 embedsEmbed = Embed(title="**__Embed Commands__**",
                                     description=f">>> {embedCommands}",
                                     colour=colour_choice,
