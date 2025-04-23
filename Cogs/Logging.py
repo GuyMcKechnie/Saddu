@@ -43,9 +43,7 @@ class Logging(commands.Cog, name="Logging"):
     async def on_member_join(self, member: nextcord.Member):
         logChannel = self.client.get_channel(955776300776300594)
         embed = Embed(title="Member Joined",
-                      description=f"Name: {member.name}{
-                          member.discriminator}.\n"
-                      f"Time: {datetime.datetime.utcnow().strftime(f'%y/%m/%d at %H:%M')}")
+                      description=f"Name: {member.name}{member.discriminator}.\n"f"Time: {datetime.datetime.utcnow().strftime(f'%y/%m/%d at %H:%M')}")
         await logChannel.send(embed=embed)
 
     @commands.Cog.listener()
