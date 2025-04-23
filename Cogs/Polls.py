@@ -33,10 +33,8 @@ class Polls(commands.Cog, name="Poll Commands"):
 
             embed = Embed(title="New Poll",
                           description=f"**{question}**", colour=colour_choice)
-            embed.add_field(name=f"To vote for: {option1}", value=f"React with {
-                            yesEmoji} below", inline=True)
-            embed.add_field(name=f"To vote for: {option2}", value=f"React with {
-                            noEmoji} below", inline=True)
+            embed.add_field(name=f"To vote for: {option1}", value=f"React with {yesEmoji} below", inline=True)
+            embed.add_field(name=f"To vote for: {option2}", value=f"React with {noEmoji} below", inline=True)
 
             message = await pollChannel.send(f"Attention {pollMention.mention}{emoji}", embed=embed)
             await message.add_reaction(yesEmoji)
@@ -68,10 +66,8 @@ class Polls(commands.Cog, name="Poll Commands"):
 
             embed = Embed(title="New Poll",
                           description=f"**{question}**", colour=colour_choice)
-            embed.add_field(name=f"To vote for: {option1}", value=f"React with {
-                            optionOneEmoji} below", inline=True)
-            embed.add_field(name=f"To vote for: {option2}", value=f"React with {
-                            optionTwoEmoji} below", inline=True)
+            embed.add_field(name=f"To vote for: {option1}", value=f"React with {optionOneEmoji} below", inline=True)
+            embed.add_field(name=f"To vote for: {option2}", value=f"React with {optionTwoEmoji} below", inline=True)
 
             message = await pollChannel.send(f"Attention {pollMention.mention}{emoji}", embed=embed)
             await message.add_reaction(optionOneEmoji)
@@ -105,12 +101,9 @@ class Polls(commands.Cog, name="Poll Commands"):
 
             embed = Embed(title="New Poll",
                           description=f"**{question}**", colour=colour_choice)
-            embed.add_field(name=f"To vote for: {option1}", value=f"React with {
-                            optionOneEmoji} below", inline=False)
-            embed.add_field(name=f"To vote for: {option2}", value=f"React with {
-                            optionTwoEmoji} below", inline=False)
-            embed.add_field(name=f"To vote for: {option3}", value=f"React with {
-                            optionThreeEmoji} below", inline=False)
+            embed.add_field(name=f"To vote for: {option1}", value=f"React with {optionOneEmoji} below", inline=False)
+            embed.add_field(name=f"To vote for: {option2}", value=f"React with {optionTwoEmoji} below", inline=False)
+            embed.add_field(name=f"To vote for: {option3}", value=f"React with {optionThreeEmoji} below", inline=False)
 
             message = await pollChannel.send(f"Attention {pollMention.mention}{emoji}", embed=embed)
             await message.add_reaction(optionOneEmoji)
