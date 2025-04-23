@@ -128,8 +128,7 @@ class MainCounting(commands.Cog):
                         loggingChannel = self.client.get_channel(
                             955776300776300594)
                         embed = Embed(title="Counting Error",
-                                      description=f"{message.author.name}{message.author.discriminator} counted incorrectly to {
-                                          str(num)} when the number was {number+1}",
+                                      description=f"{message.author.name}{message.author.discriminator} counted incorrectly to {str(num)} when the number was {number+1}",
                                       timestamp=datetime.utcnow())
                         await loggingChannel.send(embed=embed)
 
@@ -151,8 +150,7 @@ class MainCounting(commands.Cog):
                             checkPoint = [checkPoint-1]
                             json.dump(checkPoint, cpFileD)
                         embed = Embed(title="Sicarius Counting Machine 2000",
-                                      description=f"The server has a check point available. It has been used.\nCheckpoints available: {
-                                          checkPoint}",
+                                      description=f"The server has a check point available. It has been used.\nCheckpoints available: {checkPoint}",
                                       colour=random.choice(colours),
                                       timestamp=datetime.utcnow())
                         await countingChannel.send(embed=embed)
@@ -180,8 +178,7 @@ class MainCounting(commands.Cog):
                     loggingChannel = self.client.get_channel(
                         955776300776300594)
                     embed = Embed(title="Counting Error",
-                                  description=f"{message.author.name}{message.author.discriminator} counted incorrectly to {
-                                      str(num)} when the number was {number+1}",
+                                  description=f"{message.author.name}{message.author.discriminator} counted incorrectly to {str(num)} when the number was {number+1}",
                                   timestamp=datetime.utcnow())
                     await loggingChannel.send(embed=embed)
 
