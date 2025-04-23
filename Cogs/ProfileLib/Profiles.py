@@ -64,9 +64,7 @@ class Profiles(commands.Cog, name="Profile Commands"):
 
         boostE = self.client.get_emoji(959779367431598151)
         server_embed.add_field(name=f"{boostE} Boost Status",
-                               value=f"Level: {act.guild.premium_tier}\n"
-                               f"Boosts: {
-                                   act.guild.premium_subscription_count}",
+                               value=f"Level: {act.guild.premium_tier}\nBoosts: {act.guild.premium_subscription_count}",
                                inline=False)
 
         memberE = self.client.get_emoji(959779663264223262)
