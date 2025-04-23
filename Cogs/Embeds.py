@@ -105,8 +105,7 @@ class Embeds(commands.Cog, name="Embeds"):
         saddu: Member = self.client.get_user(925934213029589062)
         if act.user.guild_permissions.administrator:
             embed = Embed(title="**__Saddu's Feature List__**",
-                          description=f"For a full list of {
-                              saddu.mention}'s features use: /help\n\n",
+                          description=f"For a full list of {saddu.mention}'s features use: /help\n\n",
                           colour=random.choice(colours),
                           timestamp=datetime.datetime.utcnow())
             features = [("__Levelling System__:", "A fully functional levelling system to replace the existing levelling system. Features that will be included should replace and update the existing levelling system."),
