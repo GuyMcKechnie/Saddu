@@ -67,9 +67,7 @@ class AdminHelpCommand(commands.Cog, name="Admin Help Command"):
                                 "**Timeout**: Enter /timeout to time a member out.\n" \
                                 "**TTag**: Enter /ttag to remove the timeout tag from the member."
                 adminEmbed = Embed(title="**__Administrator Commands__**",
-                                   description=f"These are in the form of slash commands (/commands) and can be "
-                                   f"triggered by typing /command name.\n>>> {
-                                       adminCommands}",
+                                   description=f"These are in the form of slash commands (/commands) and can be triggered by typing /command name.\n>>> {adminCommands}",
                                    colour=colour_choice,
                                    timestamp=datetime.utcnow())
                 adminEmbed.set_footer(
