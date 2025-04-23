@@ -28,8 +28,7 @@ class MusicControllers(commands.Cog):
             await vc.set_volume(10)
             embed = Embed(
                 title="🔊 Now Playing:",
-                description=f"`{song.title}`\nby: `{
-                    song.author}`\nDuration: **{str(datetime.timedelta(seconds=song.length))}**",
+                description=f"`{song.title}`\nby: `{song.author}`\nDuration: **{str(datetime.timedelta(seconds=song.length))}**",
                 url=song.uri,
                 colour=0x05bdeb)
             embed.set_thumbnail(url=song.thumb)
@@ -42,8 +41,7 @@ class MusicControllers(commands.Cog):
         elif vc.is_playing():
             await vc.queue.put_wait(song)
             embed = Embed(title=f"📜 Queue",
-                          description=f"Added `{song.title}`\nby `{
-                              song.author}` to the queue.",
+                          description=f"Added `{song.title}`\nby `{song.author}` to the queue.",
                           colour=0x05bdeb)
             embed.set_thumbnail(url=song.thumb)
             embed.set_author(

@@ -23,8 +23,7 @@ class BugReports(commands.Cog):
         adminRole = nextcord.utils.get(act.guild.roles, id=944932139139465267)
 
         embed = Embed(title="User Report",
-                      description=f"Submitter: {act.user.display_name}#{act.user.discriminator}\nReport: {
-                          report}\nTarget: {user.display_name}#{user.discriminator}",
+                      description=f"Submitter: {act.user.display_name}#{act.user.discriminator}\nReport: {report}\nTarget: {user.display_name}#{user.discriminator}",
                       timestamp=datetime.utcnow())
         await adminChannel.send(f"New report, {adminRole.mention}", embed=embed)
         await act.send("Sent report successfully")

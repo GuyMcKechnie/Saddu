@@ -30,8 +30,7 @@ class LeaveAndJoin(commands.Cog):
             colour_choice = random.choice(colours)
             doorway_channel = self.client.get_channel(926018092931379240)
             doorway_embed = Embed(title="≾ Doorway to ꜱɪᴄᴀʀɪᴜꜱ ≿",
-                                  description=f"Welcome, **{member.name}#{
-                                      member.discriminator}**!\nMember Number *{member.guild.member_count}*",
+                                  description=f"Welcome, **{member.name}#{member.discriminator}**!\nMember Number *{member.guild.member_count}*",
                                   colour=colour_choice,
                                   timestamp=datetime.utcnow(),
                                   url="https://discord.gg/fN72Eh3tEw")

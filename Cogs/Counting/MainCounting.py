@@ -82,13 +82,11 @@ class MainCounting(commands.Cog):
 
                         colours = [0xeb05e3, 0x05bdeb]
                         embed = Embed(title="Sicarius Counting Machine 2000",
-                                      description=f"{message.author.mention} counted to {
-                                          str(num)}\n\nUnfortunately, they cannot count.",
+                                      description=f"{message.author.mention} counted to {str(num)}\n\nUnfortunately, they cannot count.",
                                       colour=random.choice(colours),
                                       timestamp=datetime.utcnow())
                         embed.set_thumbnail(url=message.author.avatar.url)
-                        embed.set_footer(text=f"{message.author.display_name}#{
-                                         message.author.discriminator}", icon_url=message.author.avatar.url)
+                        embed.set_footer(text=f"{message.author.display_name}#{message.author.discriminator}", icon_url=message.author.avatar.url)
                         await countingChannel.send(embed=embed)
 
                         # Checking check point counter
@@ -102,8 +100,7 @@ class MainCounting(commands.Cog):
                                 checkPoint = [checkPoint-1]
                                 json.dump(checkPoint, cpFileD)
                             embed = Embed(title="Sicarius Counting Machine 2000",
-                                          description=f"The server has a check point available. It has been used and the number has not been reset!.\nCheckpoints available: {
-                                              checkPoint}\nCurrent Number: {number+1}",
+                                          description=f"The server has a check point available. It has been used and the number has not been reset!.\nCheckpoints available: {checkPoint}\nCurrent Number: {number+1}",
                                           colour=random.choice(colours),
                                           timestamp=datetime.utcnow())
                             await countingChannel.send(embed=embed)

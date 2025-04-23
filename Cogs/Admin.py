@@ -255,8 +255,7 @@ class Admin(commands.Cog):
                 if reason is None:
                     await member.edit(nick=f"[Timed Out] {member.display_name}", timeout=duration)
                     await interaction.response.send_message(
-                        f"{member.mention} has been timed out by {
-                            interaction.user.men} successfully!\nDuration: {duration}"
+                        f"{member.mention} has been timed out by {interaction.user.men} successfully!\nDuration: {duration}"
                         f"\nReason: No reason provided.\n")
                     # Logging
                     logChannel = self.client.get_channel(955776300776300594)
@@ -269,8 +268,7 @@ class Admin(commands.Cog):
                 else:
                     await member.edit(nick=f"[Timed Out] {member.display_name}", timeout=duration)
                     await interaction.response.send_message(
-                        f"{member.mention} has been timed out by {
-                            interaction.user.mention} successfully!\nDuration: "
+                        f"{member.mention} has been timed out by {interaction.user.mention} successfully!\nDuration: "
                         f"{duration}\nReason: {reason}.\n")
                     # Logging
                     logChannel = self.client.get_channel(955776300776300594)

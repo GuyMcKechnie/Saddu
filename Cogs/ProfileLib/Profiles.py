@@ -74,11 +74,7 @@ class Profiles(commands.Cog, name="Profile Commands"):
         for bot in act.guild.bots:
             botCount += 1
         server_embed.add_field(name=f"{memberE} Member Summary",
-                               value=f"> Total Members: {
-                                   act.guild.member_count}\n"
-                               f">  Bot Members: {botCount}\n"
-                               f">  Human Members: {
-                                   act.guild.member_count - botCount}",
+                               value=f"> Total Members: {act.guild.member_count}\n"f">  Bot Members: {botCount}\n"f">  Human Members: {act.guild.member_count - botCount}",
                                inline=True)
 
         channelE = self.client.get_emoji(959780921593188402)

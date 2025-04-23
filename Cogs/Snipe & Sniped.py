@@ -74,8 +74,7 @@ class SnipeAndSnipedCommands(commands.Cog, name="Snipe & Sniped Commands"):
                 await interaction.send(embed=embed)
         else:
             embed = Embed(title=f"Sniped {authorName}",
-                          description=f"Original Message: {
-                              contentB}\nEdited Message: {contentA}",
+                          description=f"Original Message: {contentB}\nEdited Message: {contentA}",
                           colour=random.choice(colours))
             await interaction.send(embed=embed)
 
