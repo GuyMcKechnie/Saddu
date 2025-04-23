@@ -260,9 +260,7 @@ class Admin(commands.Cog):
                     # Logging
                     logChannel = self.client.get_channel(955776300776300594)
                     embed = Embed(title="Member Timed Out",
-                                  description=f"Authorizer: {interaction.user.name}#{
-                                      interaction.user.discriminator}.\n"
-                                  f"Member: {member.name}#{member.discriminator}\nDuration:{duration}.")
+                                  description=f"Authorizer: {interaction.user.name}#{interaction.user.discriminator}.\n"f"Member: {member.name}#{member.discriminator}\nDuration:{duration}.")
                     await logChannel.send(embed=embed)
 
                 else:
