@@ -1,0 +1,8 @@
+nextcord
+dotenv
+wavelink
+gTTS
+requests
+aiohttp
+Pillow
+spotipy
