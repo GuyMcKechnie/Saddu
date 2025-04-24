@@ -6,3 +6,4 @@ requests
 aiohttp
 Pillow
 spotipy
+ffmpeg
